@@ -1,6 +1,8 @@
 $(document).ready(function() {
+    var isTiming = true
+    //$("#timerbutton").one("click", function(){
     $("#timerbutton").click(function(){
-
+        if(isTiming){
         function pretty_time_string(num) {
             return ( num < 10 ? "0" : "" ) + num;
         }
@@ -24,7 +26,17 @@ $(document).ready(function() {
         
         var currentTimeString = hours + ":" + minutes + ":" + seconds;
         
-        $('#timer').text(currentTimeString);
+        $('#timerbutton').text(currentTimeString);
         }, 1000);
-    })
+
+        $("#timerOnButton").one("click", function(){
+            isTiming = false
+        })
+    
+        }
+        else{
+            $('#timerbutton').text(currentTimeString);
+        }
+    });
+    
 });
